@@ -1,0 +1,73 @@
+.bodybackground {
+    background-image: url("../images/knnwbackground1.jpg");
+    height: 100%
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+
+
+.navbar-brand {
+    font-size: 10px !important;
+}
+
+.nav-item {
+    font-size: 10px !important;
+}
+
+#text0 {
+    font-family: 'Arial Black', 'Calibri Light', "Times New Roman";
+    font-size: 40px;
+    text-align: center;
+    color: white;
+}
+#text1 {
+    font-family: 'Arial Black', 'Calibri Light', "Times New Roman";
+    font-size: 20px;
+    text-align: center;
+    color: white;
+}
+
+.card {
+    opacity: .8;
+
+
+}carousel-caption {
+
+     font-family: 'Arial Black', 'Calibri Light', "Times New Roman";
+     font-size: 20px;
+     text-align: center;
+     color: white;
+
+
+}
+.captiontext {
+    font-family: 'Arial Black', 'Calibri Light', "Times New Roman";
+    font-size: 40px;
+    text-align: center;
+    color: white;
+
+}
+
+
+
+
+.jumbotron {
+    opacity: .8
+}
+.imagecenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.carousel-inner img {
+    margin: auto;
+}
+
+.contactform {
+    color: white;
+}

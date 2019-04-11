@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/personalprofilecss.css">
+
+
+    <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyA-s-Xcb89xynj2FZrt5TiHpbszXBNekJc",
+            authDomain: "personalprofile-dc575.firebaseapp.com",
+            databaseURL: "https://personalprofile-dc575.firebaseio.com",
+            projectId: "personalprofile-dc575",
+            storageBucket: "personalprofile-dc575.appspot.com",
+            messagingSenderId: "255273137083"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+
+
+
+
+</head>
+<body class="bodybackground">
+<div>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Ellery Lee</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="WhoIam.html">Who I am <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Mybio.html">My Bio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Educationalbackground.html">Education Background</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Work%20background.html">Work Background</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Contact%20Me.html">Contact Me</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Other Things About Me
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="Hobbies%20and%20Interests.html">Hobbies and Interests</a>
+                        <a class="dropdown-item" href="Accomplishments.html">Accomplishments</a>
+                        <a class="dropdown-item" href="Projects%20I%20have%20Worked%20On.html">Projects I have Worked On</a>
+                        <a class="dropdown-item" href="Personal%20Characteristics.html">Personal Characteristics</a>
+                        <a class="dropdown-item" href="Future%20goals.html">Future Goals</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<form method="post" action="#" onsubmit="alert('Thank you for your message.');">
+    <h1 id="Contactme" class="contactform">Contact Me</h1>
+
+    <label for="name" class="contactform">Name</label>
+    <input type="text" id="name" name="name" placeholder="please enter your name" required class="box1"><br>
+
+    <label for="email" class="contactform">Email</label>
+    <input type="email" id="email" name="email" placeholder="please enter your email" required class="box1"><br>
+
+    <label for="Info" class="contactform">Info</label><br>
+    <textarea name="comment" rows="10" cols="30" id="Info" placeholder="please enter info" required class="box2"></textarea><br>
+
+    <button type ="button" onclick="addData()">Submit</button>
+</form>
+
+
+
+
+<script>
+    var db = firebase.firestore();
+
+    function addData() {
+        alert("Information submitted");
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var comment = document.getElementById("Info").value;
+
+        db.collection("contactme").add({
+            Contactname: name,
+            Contactemail: email,
+            contactcomment: comment,
+
+        })
+            .then(function (docRef) {
+                console.log("Document written with ID:", docRef.id);
+                //update the products view
+                getContact();
+
+
+            })
+            .catch(function (error) {
+                console.error("Error adding document: ", error);
+            });
+
+
+
+
+    }
+
+
+</script>
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+
+</html>
